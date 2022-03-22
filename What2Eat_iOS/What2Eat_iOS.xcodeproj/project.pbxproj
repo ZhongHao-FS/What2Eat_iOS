@@ -23,6 +23,7 @@
 		3FF7F9A427E983FD008AEC05 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 3FF7F9A327E983FD008AEC05 /* FirebaseAuth */; };
 		3FF7F9A627E983FD008AEC05 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 3FF7F9A527E983FD008AEC05 /* FirebaseFirestore */; };
 		3FF7F9A827E983FD008AEC05 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 3FF7F9A727E983FD008AEC05 /* FirebaseStorage */; };
+		3FF7F9AB27EA4686008AEC05 /* FirebaseFirestoreSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = 3FF7F9AA27EA4686008AEC05 /* FirebaseFirestoreSwift-Beta */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,7 @@
 			files = (
 				3FF7F9A227E983FD008AEC05 /* FirebaseAnalytics in Frameworks */,
 				3FF7F9A827E983FD008AEC05 /* FirebaseStorage in Frameworks */,
+				3FF7F9AB27EA4686008AEC05 /* FirebaseFirestoreSwift-Beta in Frameworks */,
 				3FF7F9A427E983FD008AEC05 /* FirebaseAuth in Frameworks */,
 				3FF7F9A627E983FD008AEC05 /* FirebaseFirestore in Frameworks */,
 			);
@@ -161,6 +163,7 @@
 				3FF7F9A327E983FD008AEC05 /* FirebaseAuth */,
 				3FF7F9A527E983FD008AEC05 /* FirebaseFirestore */,
 				3FF7F9A727E983FD008AEC05 /* FirebaseStorage */,
+				3FF7F9AA27EA4686008AEC05 /* FirebaseFirestoreSwift-Beta */,
 			);
 			productName = What2Eat_iOS;
 			productReference = 3FF7F96927E98134008AEC05 /* What2Eat_iOS.app */;
@@ -236,6 +239,7 @@
 			mainGroup = 3FF7F96027E98134008AEC05;
 			packageReferences = (
 				3FF7F9A027E983FD008AEC05 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				3FF7F9A927EA4686008AEC05 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 3FF7F96A27E98134008AEC05 /* Products */;
 			projectDirPath = "";
@@ -637,6 +641,14 @@
 				minimumVersion = 8.0.0;
 			};
 		};
+		3FF7F9A927EA4686008AEC05 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -659,6 +671,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 3FF7F9A027E983FD008AEC05 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
+		};
+		3FF7F9AA27EA4686008AEC05 /* FirebaseFirestoreSwift-Beta */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3FF7F9A027E983FD008AEC05 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseFirestoreSwift-Beta";
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
