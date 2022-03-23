@@ -3,6 +3,7 @@
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -36,7 +37,7 @@
                                         <rect key="frame" x="8" y="36" width="296" height="34"/>
                                         <color key="textColor" name="Dark"/>
                                         <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits" textContentType="email"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pPE-uv-4Qn">
                                         <rect key="frame" x="8" y="109.99999999999994" width="66" height="20"/>
@@ -48,7 +49,7 @@
                                         <rect key="frame" x="8" y="137.99999999999994" width="296" height="34"/>
                                         <color key="textColor" name="Dark"/>
                                         <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits" textContentType="email"/>
+                                        <textInputTraits key="textInputTraits" textContentType="password"/>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -132,8 +133,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1Eh-CH-iTO">
-                                <rect key="frame" x="75" y="52" width="240" height="240"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="1Eh-CH-iTO">
+                                <rect key="frame" x="75" y="53.999999999999986" width="240" height="236.66666666666669"/>
+                                <color key="tintColor" name="Matcha"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="1Eh-CH-iTO" secondAttribute="height" multiplier="1:1" id="dhm-B3-UlU"/>
                                 </constraints>
@@ -159,7 +161,7 @@
                                         <rect key="frame" x="8" y="36" width="296" height="34"/>
                                         <color key="textColor" name="Dark"/>
                                         <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits" textContentType="email"/>
+                                        <textInputTraits key="textInputTraits" textContentType="name"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q8O-Ft-JXu">
                                         <rect key="frame" x="8" y="110" width="37" height="20"/>
@@ -171,7 +173,7 @@
                                         <rect key="frame" x="8" y="138" width="296" height="34"/>
                                         <color key="textColor" name="Dark"/>
                                         <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits" textContentType="email"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ajA-Y4-Ccp">
                                         <rect key="frame" x="8" y="212" width="66" height="20"/>
@@ -183,7 +185,7 @@
                                         <rect key="frame" x="8" y="240" width="296" height="34"/>
                                         <color key="textColor" name="Dark"/>
                                         <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits" textContentType="email"/>
+                                        <textInputTraits key="textInputTraits" textContentType="new-password"/>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -269,19 +271,137 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yls-bk-Bml" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="Ja8-4b-fCa" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="973.84615384615381" y="83.886255924170612"/>
+            <point key="canvasLocation" x="858" y="84"/>
+        </scene>
+        <!--Main View Controller-->
+        <scene sceneID="0lI-RX-GDe">
+            <objects>
+                <viewController id="LwT-Hj-7gI" customClass="MainViewController" customModule="What2Eat_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Eqc-Rm-Jg7">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="wLc-6R-ud1">
+                                <rect key="frame" x="60.666666666666657" y="104" width="268.66666666666674" height="299"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="wLc-6R-ud1" secondAttribute="height" multiplier="285:317" id="DXQ-Md-j5J"/>
+                                </constraints>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XhW-Mi-Vew">
+                                <rect key="frame" x="39" y="453" width="312" height="211"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sBB-SV-HIZ">
+                                        <rect key="frame" x="8" y="8" width="57" height="20"/>
+                                        <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="17"/>
+                                        <color key="textColor" name="Dark"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <searchBar contentMode="redraw" placeholder="Enter your address" translatesAutoresizingMaskIntoConstraints="NO" id="Fm7-xx-9VE">
+                                        <rect key="frame" x="8" y="36" width="296" height="51"/>
+                                        <textInputTraits key="textInputTraits" textContentType="street-address"/>
+                                    </searchBar>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lk0-9o-0Uv">
+                                        <rect key="frame" x="8" y="172" width="296" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" imagePlacement="trailing" title="Or use your current location">
+                                            <imageReference key="image" image="location.circle" catalog="system" renderingMode="hierarchical-single">
+                                                <hierarchicalColors>
+                                                    <color name="Dark"/>
+                                                    <color systemColor="secondaryLabelColor"/>
+                                                    <color systemColor="tertiaryLabelColor"/>
+                                                </hierarchicalColors>
+                                            </imageReference>
+                                            <color key="baseForegroundColor" name="Orange"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="locationTapped:" destination="LwT-Hj-7gI" eventType="touchUpInside" id="Ogf-wc-th1"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="Lk0-9o-0Uv" secondAttribute="bottom" constant="8" id="2ID-DX-tay"/>
+                                    <constraint firstItem="sBB-SV-HIZ" firstAttribute="top" secondItem="XhW-Mi-Vew" secondAttribute="top" constant="8" id="HGb-yl-tr4"/>
+                                    <constraint firstAttribute="trailing" secondItem="Lk0-9o-0Uv" secondAttribute="trailing" constant="8" id="K2z-VQ-YaA"/>
+                                    <constraint firstItem="Fm7-xx-9VE" firstAttribute="leading" secondItem="XhW-Mi-Vew" secondAttribute="leading" constant="8" id="Nnp-gY-zvq"/>
+                                    <constraint firstItem="Lk0-9o-0Uv" firstAttribute="leading" secondItem="XhW-Mi-Vew" secondAttribute="leading" constant="8" id="OAs-af-LoO"/>
+                                    <constraint firstItem="Fm7-xx-9VE" firstAttribute="top" secondItem="sBB-SV-HIZ" secondAttribute="bottom" constant="8" id="P8S-RA-2We"/>
+                                    <constraint firstAttribute="trailing" secondItem="Fm7-xx-9VE" secondAttribute="trailing" constant="8" id="XLI-Ok-hLU"/>
+                                    <constraint firstItem="sBB-SV-HIZ" firstAttribute="leading" secondItem="XhW-Mi-Vew" secondAttribute="leading" constant="8" id="kXE-GY-XlS"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="PFR-cZ-u45"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="wLc-6R-ud1" firstAttribute="top" secondItem="PFR-cZ-u45" secondAttribute="top" constant="60" id="C9M-tl-riK"/>
+                            <constraint firstItem="XhW-Mi-Vew" firstAttribute="centerX" secondItem="PFR-cZ-u45" secondAttribute="centerX" id="JiS-8o-JR5"/>
+                            <constraint firstItem="XhW-Mi-Vew" firstAttribute="top" secondItem="wLc-6R-ud1" secondAttribute="bottom" constant="50" id="Lfl-cw-SuG"/>
+                            <constraint firstItem="XhW-Mi-Vew" firstAttribute="height" secondItem="Eqc-Rm-Jg7" secondAttribute="height" multiplier="0.25" id="YFg-Qo-Sdk"/>
+                            <constraint firstItem="wLc-6R-ud1" firstAttribute="centerX" secondItem="PFR-cZ-u45" secondAttribute="centerX" id="caF-P6-KlY"/>
+                            <constraint firstItem="wLc-6R-ud1" firstAttribute="width" secondItem="Eqc-Rm-Jg7" secondAttribute="width" multiplier="0.688889" id="h9F-vk-T9G"/>
+                            <constraint firstItem="XhW-Mi-Vew" firstAttribute="width" secondItem="Eqc-Rm-Jg7" secondAttribute="width" multiplier="0.8" id="wqo-Yh-pQS"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" id="mYV-7y-rMQ">
+                        <imageReference key="image" image="fork.knife" catalog="system" renderingMode="hierarchical-single">
+                            <hierarchicalColors>
+                                <color name="Orange"/>
+                                <color systemColor="secondaryLabelColor"/>
+                                <color systemColor="tertiaryLabelColor"/>
+                            </hierarchicalColors>
+                        </imageReference>
+                    </tabBarItem>
+                    <connections>
+                        <outlet property="searchInput" destination="Fm7-xx-9VE" id="t10-Px-cdH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JdD-H4-FRS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2913.8461538461538" y="83.886255924170612"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="Vps-ZM-yLx">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="X5G-RP-6pX" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="pz7-fz-pLC">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" name="Matcha"/>
+                        <color key="tintColor" systemColor="systemBackgroundColor"/>
+                        <color key="selectedImageTintColor" name="Dark"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="LwT-Hj-7gI" kind="relationship" relationship="viewControllers" id="JeF-8s-ica"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EYz-RF-aYw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1984.6153846153845" y="83.886255924170612"/>
         </scene>
     </scenes>
     <resources>
         <image name="Logo" width="1103" height="1227"/>
+        <image name="fork.knife" catalog="system" width="92" height="128"/>
+        <image name="location.circle" catalog="system" width="128" height="121"/>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
         <namedColor name="Dark">
             <color red="0.19599999487400055" green="0.19599999487400055" blue="0.19599999487400055" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Matcha">
+            <color red="0.40400001406669617" green="0.83499997854232788" blue="0.41200000047683716" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Orange">
             <color red="0.97647058823529409" green="0.65098039215686276" blue="0.12549019607843137" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="tertiaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
