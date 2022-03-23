@@ -24,6 +24,7 @@
 		3FF7F9A627E983FD008AEC05 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 3FF7F9A527E983FD008AEC05 /* FirebaseFirestore */; };
 		3FF7F9A827E983FD008AEC05 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 3FF7F9A727E983FD008AEC05 /* FirebaseStorage */; };
 		3FF7F9AB27EA4686008AEC05 /* FirebaseFirestoreSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = 3FF7F9AA27EA4686008AEC05 /* FirebaseFirestoreSwift-Beta */; };
+		3FF7F9AD27EA8415008AEC05 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF7F9AC27EA8415008AEC05 /* SignUpViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		3FF7F98D27E9813E008AEC05 /* What2Eat_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = What2Eat_iOSUITests.swift; sourceTree = "<group>"; };
 		3FF7F98F27E9813E008AEC05 /* What2Eat_iOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = What2Eat_iOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		3FF7F99C27E98275008AEC05 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3FF7F9AC27EA8415008AEC05 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 				3FF7F97727E9813D008AEC05 /* LaunchScreen.storyboard */,
 				3FF7F97A27E9813D008AEC05 /* Info.plist */,
 				3FF7F99C27E98275008AEC05 /* GoogleService-Info.plist */,
+				3FF7F9AC27EA8415008AEC05 /* SignUpViewController.swift */,
 			);
 			path = What2Eat_iOS;
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 			files = (
 				3FF7F97127E98134008AEC05 /* ViewController.swift in Sources */,
 				3FF7F96D27E98134008AEC05 /* AppDelegate.swift in Sources */,
+				3FF7F9AD27EA8415008AEC05 /* SignUpViewController.swift in Sources */,
 				3FF7F96F27E98134008AEC05 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
