@@ -15,10 +15,11 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        let image = UIImage()
+        searchInput.backgroundImage = image
     }
     
-    @IBAction func locationTapped(_ sender: UIButton) {
-    }
+    
     
     /*
     // MARK: - Navigation

@@ -119,6 +119,7 @@
                     <connections>
                         <outlet property="emailInput" destination="ZBW-l5-hgD" id="CY8-86-SU1"/>
                         <outlet property="pwdInput" destination="N0Y-Iv-x1e" id="afo-6E-WDK"/>
+                        <segue destination="X5G-RP-6pX" kind="presentation" identifier="signIn" modalPresentationStyle="fullScreen" id="Kij-FS-083"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -229,7 +230,7 @@
                                             <color key="baseForegroundColor" name="Orange"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <segue destination="Ja8-4b-fCa" kind="unwind" unwindAction="unwindToRoot:" id="233-oE-dq4"/>
+                                            <segue destination="Ja8-4b-fCa" kind="unwind" identifier="unwindToLogin" unwindAction="unwindToRoot:" id="233-oE-dq4"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -271,7 +272,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yls-bk-Bml" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="Ja8-4b-fCa" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="858" y="84"/>
+            <point key="canvasLocation" x="29" y="813"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="0lI-RX-GDe">
@@ -282,13 +283,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="wLc-6R-ud1">
-                                <rect key="frame" x="60.666666666666657" y="104" width="268.66666666666674" height="299"/>
+                                <rect key="frame" x="60.666666666666657" y="148" width="268.66666666666674" height="299"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="wLc-6R-ud1" secondAttribute="height" multiplier="285:317" id="DXQ-Md-j5J"/>
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XhW-Mi-Vew">
-                                <rect key="frame" x="39" y="453" width="312" height="211"/>
+                                <rect key="frame" x="39" y="497" width="312" height="211"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sBB-SV-HIZ">
                                         <rect key="frame" x="8" y="8" width="57" height="20"/>
@@ -298,33 +299,21 @@
                                     </label>
                                     <searchBar contentMode="redraw" placeholder="Enter your address" translatesAutoresizingMaskIntoConstraints="NO" id="Fm7-xx-9VE">
                                         <rect key="frame" x="8" y="36" width="296" height="51"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="barTintColor" systemColor="systemBackgroundColor"/>
                                         <textInputTraits key="textInputTraits" textContentType="street-address"/>
                                     </searchBar>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lk0-9o-0Uv">
-                                        <rect key="frame" x="8" y="172" width="296" height="31"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" imagePlacement="trailing" title="Or use your current location">
-                                            <imageReference key="image" image="location.circle" catalog="system" renderingMode="hierarchical-single">
-                                                <hierarchicalColors>
-                                                    <color name="Dark"/>
-                                                    <color systemColor="secondaryLabelColor"/>
-                                                    <color systemColor="tertiaryLabelColor"/>
-                                                </hierarchicalColors>
-                                            </imageReference>
-                                            <color key="baseForegroundColor" name="Orange"/>
-                                        </buttonConfiguration>
-                                        <connections>
-                                            <action selector="locationTapped:" destination="LwT-Hj-7gI" eventType="touchUpInside" id="Ogf-wc-th1"/>
-                                        </connections>
-                                    </button>
+                                    <clLocationButton opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" icon="arrowFilled" label="currentLocation" translatesAutoresizingMaskIntoConstraints="NO" id="wUU-qW-KDB">
+                                        <rect key="frame" x="64" y="162" width="185" height="41"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="tintColor" name="Orange"/>
+                                    </clLocationButton>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="Lk0-9o-0Uv" secondAttribute="bottom" constant="8" id="2ID-DX-tay"/>
                                     <constraint firstItem="sBB-SV-HIZ" firstAttribute="top" secondItem="XhW-Mi-Vew" secondAttribute="top" constant="8" id="HGb-yl-tr4"/>
-                                    <constraint firstAttribute="trailing" secondItem="Lk0-9o-0Uv" secondAttribute="trailing" constant="8" id="K2z-VQ-YaA"/>
                                     <constraint firstItem="Fm7-xx-9VE" firstAttribute="leading" secondItem="XhW-Mi-Vew" secondAttribute="leading" constant="8" id="Nnp-gY-zvq"/>
-                                    <constraint firstItem="Lk0-9o-0Uv" firstAttribute="leading" secondItem="XhW-Mi-Vew" secondAttribute="leading" constant="8" id="OAs-af-LoO"/>
                                     <constraint firstItem="Fm7-xx-9VE" firstAttribute="top" secondItem="sBB-SV-HIZ" secondAttribute="bottom" constant="8" id="P8S-RA-2We"/>
                                     <constraint firstAttribute="trailing" secondItem="Fm7-xx-9VE" secondAttribute="trailing" constant="8" id="XLI-Ok-hLU"/>
                                     <constraint firstItem="sBB-SV-HIZ" firstAttribute="leading" secondItem="XhW-Mi-Vew" secondAttribute="leading" constant="8" id="kXE-GY-XlS"/>
@@ -343,8 +332,42 @@
                             <constraint firstItem="XhW-Mi-Vew" firstAttribute="width" secondItem="Eqc-Rm-Jg7" secondAttribute="width" multiplier="0.8" id="wqo-Yh-pQS"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="Ljy-iQ-PSI"/>
+                    <connections>
+                        <outlet property="searchInput" destination="Fm7-xx-9VE" id="t10-Px-cdH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JdD-H4-FRS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3655" y="84"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="Vps-ZM-yLx">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="X5G-RP-6pX" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="a7D-bH-qZA"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="pz7-fz-pLC">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" name="Matcha"/>
+                        <color key="tintColor" systemColor="systemBackgroundColor"/>
+                        <color key="selectedImageTintColor" name="Dark"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Eib-VT-IUG" kind="relationship" relationship="viewControllers" id="JeF-8s-ica"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EYz-RF-aYw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1417" y="84"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="OJR-b8-WNs">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Eib-VT-IUG" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" id="mYV-7y-rMQ">
-                        <imageReference key="image" image="fork.knife" catalog="system" renderingMode="hierarchical-single">
+                        <imageReference key="image" image="magnifyingglass" catalog="system" renderingMode="hierarchical-single">
                             <hierarchicalColors>
                                 <color name="Orange"/>
                                 <color systemColor="secondaryLabelColor"/>
@@ -352,38 +375,24 @@
                             </hierarchicalColors>
                         </imageReference>
                     </tabBarItem>
-                    <connections>
-                        <outlet property="searchInput" destination="Fm7-xx-9VE" id="t10-Px-cdH"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="JdD-H4-FRS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2913.8461538461538" y="83.886255924170612"/>
-        </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="Vps-ZM-yLx">
-            <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="X5G-RP-6pX" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="pz7-fz-pLC">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="54p-Wj-ujz">
+                        <rect key="frame" x="0.0" y="44" width="390" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" name="Matcha"/>
-                        <color key="tintColor" systemColor="systemBackgroundColor"/>
-                        <color key="selectedImageTintColor" name="Dark"/>
-                    </tabBar>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="LwT-Hj-7gI" kind="relationship" relationship="viewControllers" id="JeF-8s-ica"/>
+                        <segue destination="LwT-Hj-7gI" kind="relationship" relationship="rootViewController" id="pdq-jM-fcF"/>
                     </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="EYz-RF-aYw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hsT-nC-Prh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1984.6153846153845" y="83.886255924170612"/>
+            <point key="canvasLocation" x="2555" y="84"/>
         </scene>
     </scenes>
     <resources>
         <image name="Logo" width="1103" height="1227"/>
-        <image name="fork.knife" catalog="system" width="92" height="128"/>
-        <image name="location.circle" catalog="system" width="128" height="121"/>
+        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <namedColor name="Dark">
             <color red="0.19599999487400055" green="0.19599999487400055" blue="0.19599999487400055" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -392,7 +401,7 @@
             <color red="0.40400001406669617" green="0.83499997854232788" blue="0.41200000047683716" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Orange">
-            <color red="0.97647058823529409" green="0.65098039215686276" blue="0.12549019607843137" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.97600001096725464" green="0.65100002288818359" blue="0.125" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>

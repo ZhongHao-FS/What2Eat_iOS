@@ -26,6 +26,7 @@
 		3FF7F9AB27EA4686008AEC05 /* FirebaseFirestoreSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = 3FF7F9AA27EA4686008AEC05 /* FirebaseFirestoreSwift-Beta */; };
 		3FF7F9AD27EA8415008AEC05 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF7F9AC27EA8415008AEC05 /* SignUpViewController.swift */; };
 		3FF7F9AF27EBD60E008AEC05 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF7F9AE27EBD60E008AEC05 /* MainViewController.swift */; };
+		3FF7F9B127ED57C4008AEC05 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF7F9B027ED57C4008AEC05 /* Utility.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		3FF7F99C27E98275008AEC05 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3FF7F9AC27EA8415008AEC05 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		3FF7F9AE27EBD60E008AEC05 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		3FF7F9B027ED57C4008AEC05 /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,7 @@
 				3FF7F99C27E98275008AEC05 /* GoogleService-Info.plist */,
 				3FF7F9AC27EA8415008AEC05 /* SignUpViewController.swift */,
 				3FF7F9AE27EBD60E008AEC05 /* MainViewController.swift */,
+				3FF7F9B027ED57C4008AEC05 /* Utility.swift */,
 			);
 			path = What2Eat_iOS;
 			sourceTree = "<group>";
@@ -295,6 +298,7 @@
 			files = (
 				3FF7F97127E98134008AEC05 /* ViewController.swift in Sources */,
 				3FF7F96D27E98134008AEC05 /* AppDelegate.swift in Sources */,
+				3FF7F9B127ED57C4008AEC05 /* Utility.swift in Sources */,
 				3FF7F9AD27EA8415008AEC05 /* SignUpViewController.swift in Sources */,
 				3FF7F96F27E98134008AEC05 /* SceneDelegate.swift in Sources */,
 				3FF7F9AF27EBD60E008AEC05 /* MainViewController.swift in Sources */,
