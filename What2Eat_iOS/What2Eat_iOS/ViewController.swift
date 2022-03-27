@@ -13,7 +13,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var emailInput: UITextField!
     @IBOutlet weak var pwdInput: UITextField!
     
-    var handle: AuthStateDidChangeListenerHandle?
     var email = ""
     var pwd = ""
     
@@ -21,37 +20,35 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        handle = Auth.auth().addStateDidChangeListener { auth, user in
-            self.performSegue(withIdentifier: "signIn", sender: user)
-            }
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-        Auth.auth().removeStateDidChangeListener(handle!)
-    }
     
     @IBAction func loginTapped(_ sender: UIButton) {
         email = Utility.validateStrInput(emailInput.text)
         pwd = Utility.validateStrInput(pwdInput.text)
         
         if email.contains("@") && pwd != "" {
-            Auth.auth().signIn(withEmail: email, password: pwd) { authResult, error in
-                if error != nil {
+            Auth.auth().signIn(withEmail: email, password: pwd) { [weak self] authResult, error in
+                guard let strongSelf = self, let result = authResult else {
+                    self?.incorrectAlert()
+                    return
+                    }
+                if error == nil {
+                    strongSelf.performSegue(withIdentifier: "signIn", sender: sender)
+                } else {
+                    print(result.user.displayName!)
                     print(error!.localizedDescription)
+                        strongSelf.incorrectAlert()
                 }
             }
         } else {
-            let alert = UIAlertController(title: "Incorrect Email/Password", message: "Please try again!", preferredStyle: .alert)
-            let okButton = UIAlertAction(title: "OK", style: .default)
-            alert.addAction(okButton)
-            present(alert, animated: true)
+            incorrectAlert()
         }
+    }
+    
+    func incorrectAlert() {
+        let alert = UIAlertController(title: "Please try again!", message: "Incorrect Email/Password", preferredStyle: .alert)
+        let okButton = UIAlertAction(title: "OK", style: .default)
+        alert.addAction(okButton)
+        present(alert, animated: true)
     }
     
     @IBAction func unwindToRoot(_ unwindSegue: UIStoryboardSegue) {

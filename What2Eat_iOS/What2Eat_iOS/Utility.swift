@@ -20,8 +20,8 @@ class Utility {
     
     static func createStorageReference(_ uid: String) -> StorageReference {
         let storageRef = Storage.storage().reference()
-        let imageRef = storageRef.child("images")
-        let fileName = uid + ".jpg"
+        let imageRef = storageRef.child("images/" + uid)
+        let fileName = "profile.jpg"
         
         return imageRef.child(fileName)
     }

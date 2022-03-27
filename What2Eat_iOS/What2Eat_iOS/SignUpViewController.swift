@@ -60,7 +60,7 @@ class SignUpViewController: UIViewController, PHPickerViewControllerDelegate {
         email = Utility.validateStrInput(emailInput.text)
         pwd = Utility.validateStrInput(pwdInput.text)
         
-        if name != "" && email.contains("@") && pwd != "" {
+        if name != "" && email.contains("@") && pwd != "" && imageData != Data() {
             Auth.auth().createUser(withEmail: email, password: pwd) { authResult, error in
                 guard let user = authResult?.user, error == nil else {
                     print(error!.localizedDescription)
@@ -96,7 +96,7 @@ class SignUpViewController: UIViewController, PHPickerViewControllerDelegate {
                 }
             }
         } else {
-            let alert = UIAlertController(title: "Invalid Input", message: "Please type in your name, email, and password!", preferredStyle: .alert)
+            let alert = UIAlertController(title: "All fields are required", message: "Please type in your name, email, password, and upload a profile image!", preferredStyle: .alert)
             let okButton = UIAlertAction(title: "OK", style: .default)
             alert.addAction(okButton)
             present(alert, animated: true)
