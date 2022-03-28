@@ -319,6 +319,15 @@
                                     <constraint firstItem="sBB-SV-HIZ" firstAttribute="leading" secondItem="XhW-Mi-Vew" secondAttribute="leading" constant="8" id="kXE-GY-XlS"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Afo-M8-bKJ">
+                                <rect key="frame" x="143" y="730" width="94" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="ShortCut"/>
+                                <connections>
+                                    <action selector="segueOverridden:" destination="LwT-Hj-7gI" eventType="touchUpInside" id="pUX-Gr-lgG"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="PFR-cZ-u45"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -335,11 +344,47 @@
                     <navigationItem key="navigationItem" id="Ljy-iQ-PSI"/>
                     <connections>
                         <outlet property="searchInput" destination="Fm7-xx-9VE" id="t10-Px-cdH"/>
+                        <segue destination="uD8-uN-M8I" kind="show" identifier="search" id="cls-vm-WGk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JdD-H4-FRS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3655" y="84"/>
+            <point key="canvasLocation" x="3653.8461538461538" y="83.886255924170612"/>
+        </scene>
+        <!--Carousel View Controller-->
+        <scene sceneID="Taf-FN-Fly">
+            <objects>
+                <viewController id="uD8-uN-M8I" customClass="CarouselViewController" customModule="What2Eat_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="crh-rM-6II">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Sy-ME-EdG" customClass="StackContainerView" customModule="What2Eat_iOS" customModuleProvider="target">
+                                <rect key="frame" x="15" y="84.666666666666686" width="360" height="680"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="680" id="8rZ-CX-rBW"/>
+                                    <constraint firstAttribute="width" constant="360" id="I5b-zt-CZq"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="fjK-69-64Z" kind="embed" identifier="displaySlide" id="Yt2-DV-n8I"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="MDg-PN-Vs2"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="3Sy-ME-EdG" firstAttribute="centerY" secondItem="MDg-PN-Vs2" secondAttribute="centerY" id="FmM-jX-UsX"/>
+                            <constraint firstItem="3Sy-ME-EdG" firstAttribute="centerX" secondItem="MDg-PN-Vs2" secondAttribute="centerX" id="GzF-vA-Nnc"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="lEQ-ga-OMk"/>
+                    <connections>
+                        <outlet property="container" destination="3Sy-ME-EdG" id="XgD-An-nP0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PzJ-aD-fWq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3653.8461538461538" y="812.55924170616106"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Vps-ZM-yLx">
@@ -388,6 +433,36 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hsT-nC-Prh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2555" y="84"/>
+        </scene>
+        <!--Swipe View Controller-->
+        <scene sceneID="7X6-la-rJU">
+            <objects>
+                <viewController id="fjK-69-64Z" customClass="SwipeViewController" customModule="What2Eat_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="HXH-xg-Yjh">
+                        <rect key="frame" x="0.0" y="0.0" width="360" height="680"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OLc-Mc-MMW" customClass="Slide" customModule="What2Eat_iOS" customModuleProvider="target">
+                                <rect key="frame" x="40" y="68" width="280" height="588"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="RSd-ZE-qol"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottomMargin" secondItem="OLc-Mc-MMW" secondAttribute="bottom" constant="24" id="1DT-1B-2bx"/>
+                            <constraint firstItem="OLc-Mc-MMW" firstAttribute="leading" secondItem="HXH-xg-Yjh" secondAttribute="leadingMargin" constant="24" id="57p-C7-wBT"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="OLc-Mc-MMW" secondAttribute="trailing" constant="24" id="mge-pZ-Ah4"/>
+                            <constraint firstItem="OLc-Mc-MMW" firstAttribute="top" secondItem="HXH-xg-Yjh" secondAttribute="topMargin" constant="24" id="zrA-vl-gOg"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="slide" destination="OLc-Mc-MMW" id="BZB-I5-T0R"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CKY-ar-TTq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4417" y="813"/>
         </scene>
     </scenes>
     <resources>
