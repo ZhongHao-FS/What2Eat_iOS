@@ -303,31 +303,30 @@
                                         <color key="barTintColor" systemColor="systemBackgroundColor"/>
                                         <textInputTraits key="textInputTraits" textContentType="street-address"/>
                                     </searchBar>
-                                    <clLocationButton opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" icon="arrowFilled" label="currentLocation" translatesAutoresizingMaskIntoConstraints="NO" id="wUU-qW-KDB">
-                                        <rect key="frame" x="64" y="162" width="185" height="41"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GLV-dO-U6M">
+                                        <rect key="frame" x="60" y="160" width="192" height="31"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="192" id="OcM-Jw-5ok"/>
+                                        </constraints>
                                         <color key="tintColor" name="Orange"/>
-                                    </clLocationButton>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" image="location.fill" catalog="system" title="Search Near Me"/>
+                                        <connections>
+                                            <action selector="searchNearMe:" destination="LwT-Hj-7gI" eventType="touchUpInside" id="kVg-UY-xV5"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="GLV-dO-U6M" secondAttribute="bottom" constant="20" id="70J-r8-SYV"/>
                                     <constraint firstItem="sBB-SV-HIZ" firstAttribute="top" secondItem="XhW-Mi-Vew" secondAttribute="top" constant="8" id="HGb-yl-tr4"/>
                                     <constraint firstItem="Fm7-xx-9VE" firstAttribute="leading" secondItem="XhW-Mi-Vew" secondAttribute="leading" constant="8" id="Nnp-gY-zvq"/>
                                     <constraint firstItem="Fm7-xx-9VE" firstAttribute="top" secondItem="sBB-SV-HIZ" secondAttribute="bottom" constant="8" id="P8S-RA-2We"/>
                                     <constraint firstAttribute="trailing" secondItem="Fm7-xx-9VE" secondAttribute="trailing" constant="8" id="XLI-Ok-hLU"/>
                                     <constraint firstItem="sBB-SV-HIZ" firstAttribute="leading" secondItem="XhW-Mi-Vew" secondAttribute="leading" constant="8" id="kXE-GY-XlS"/>
+                                    <constraint firstItem="GLV-dO-U6M" firstAttribute="centerX" secondItem="XhW-Mi-Vew" secondAttribute="centerX" id="n0A-tf-wrY"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Afo-M8-bKJ">
-                                <rect key="frame" x="143" y="730" width="94" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="ShortCut"/>
-                                <connections>
-                                    <action selector="segueOverridden:" destination="LwT-Hj-7gI" eventType="touchUpInside" id="pUX-Gr-lgG"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="PFR-cZ-u45"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -343,7 +342,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="Ljy-iQ-PSI"/>
                     <connections>
-                        <outlet property="locationButton" destination="wUU-qW-KDB" id="boR-gs-cEQ"/>
                         <outlet property="searchInput" destination="Fm7-xx-9VE" id="t10-Px-cdH"/>
                         <segue destination="uD8-uN-M8I" kind="show" identifier="search" id="cls-vm-WGk"/>
                     </connections>
@@ -468,6 +466,7 @@
     </scenes>
     <resources>
         <image name="Logo" width="1103" height="1227"/>
+        <image name="location.fill" catalog="system" width="128" height="121"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <namedColor name="Dark">

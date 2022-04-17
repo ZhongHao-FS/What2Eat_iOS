@@ -14,16 +14,21 @@ class MainViewController: UIViewController, CLLocationManagerDelegate, UISearchB
         switch manager.authorizationStatus {
         case .notDetermined:
             manager.requestWhenInUseAuthorization()
-        default:
+        case .denied:
             return
+        default:
+            manager.requestLocation()
         }
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        print("Updating location...")
         if let first = locations.first {
             clLocation = first
         }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(error.localizedDescription)
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -36,7 +41,6 @@ class MainViewController: UIViewController, CLLocationManagerDelegate, UISearchB
     }
     
     @IBOutlet weak var searchInput: UISearchBar!
-    @IBOutlet weak var locationButton: CLLocationButton!
     
     let locationManager = CLLocationManager()
     var urlString = ""
@@ -54,20 +58,11 @@ class MainViewController: UIViewController, CLLocationManagerDelegate, UISearchB
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
         locationManager.requestLocation()
-        
-        let clButton = CLLocationButton()
-        clButton.addTarget(locationButton, action: #selector(searchWithLocation), for: .touchUpInside)
     }
     
-    @objc func searchWithLocation() {
-        urlString = "https://api.foursquare.com/v3/places/search?ll=\(self.clLocation.coordinate.latitude)%2C\(self.clLocation.coordinate.longitude)&radius=8000&categories=13000&fields=name%2Cdescription%2Cphotos"
-        print(urlString)
+    @IBAction func searchNearMe(_ sender: UIButton) {
+        urlString = "https://api.foursquare.com/v3/places/search?ll=\(clLocation.coordinate.latitude)%2C\(clLocation.coordinate.longitude)&radius=8000&categories=13000&fields=name%2Cdescription%2Cphotos"
         
-        performSegue(withIdentifier: "search", sender: self)
-    }
-    
-    @IBAction func segueOverridden(_ sender: UIButton) {
-        urlString = "https://api.foursquare.com/v3/places/search?categories=13000&fields=name%2Cdescription%2Cphotos&near=Orlando%2C%20FL"
         performSegue(withIdentifier: "search", sender: sender)
     }
     
