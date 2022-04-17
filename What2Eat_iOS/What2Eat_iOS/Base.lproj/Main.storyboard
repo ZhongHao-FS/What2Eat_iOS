@@ -343,6 +343,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Ljy-iQ-PSI"/>
                     <connections>
+                        <outlet property="locationButton" destination="wUU-qW-KDB" id="boR-gs-cEQ"/>
                         <outlet property="searchInput" destination="Fm7-xx-9VE" id="t10-Px-cdH"/>
                         <segue destination="uD8-uN-M8I" kind="show" identifier="search" id="cls-vm-WGk"/>
                     </connections>

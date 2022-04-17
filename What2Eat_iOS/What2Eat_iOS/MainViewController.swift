@@ -20,25 +20,27 @@ class MainViewController: UIViewController, CLLocationManagerDelegate, UISearchB
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let last = locations.last {
-            urlString = "https://api.foursquare.com/v3/places/search?ll=\(last.coordinate.latitude)%2C\(last.coordinate.longitude)&radius=8000&categories=13000&fields=name%2Cdescription%2Cphotos"
-            
-            performSegue(withIdentifier: "search", sender: manager)
+        print("Updating location...")
+        if let first = locations.first {
+            clLocation = first
         }
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        if searchBar.text?.isEmpty == false && searchBar.text != "" {
-            urlString = "https://api.foursquare.com/v3/places/search?categories=13000&fields=name%2Cdescription%2Cphotos&near=" + (searchBar.text ?? "Orlando%2C%20FL")
-            
+        if let keyword = searchBar.text {
+            urlString = "https://api.foursquare.com/v3/places/search?categories=13000&fields=name%2Cdescription%2Cphotos&near=" + keyword
+        
             performSegue(withIdentifier: "search", sender: searchBar)
         }
+    
     }
     
     @IBOutlet weak var searchInput: UISearchBar!
+    @IBOutlet weak var locationButton: CLLocationButton!
     
     let locationManager = CLLocationManager()
     var urlString = ""
+    var clLocation = CLLocation()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,16 +48,22 @@ class MainViewController: UIViewController, CLLocationManagerDelegate, UISearchB
         // Do any additional setup after loading the view.
         let image = UIImage()
         searchInput.backgroundImage = image
+        searchInput.delegate = self
         
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
+        locationManager.requestLocation()
+        
         let clButton = CLLocationButton()
-        clButton.addTarget(self, action: #selector(getCurrentLocation), for: .touchUpInside)
+        clButton.addTarget(locationButton, action: #selector(searchWithLocation), for: .touchUpInside)
     }
     
-    @objc func getCurrentLocation() {
-        self.locationManager.requestLocation()
+    @objc func searchWithLocation() {
+        urlString = "https://api.foursquare.com/v3/places/search?ll=\(self.clLocation.coordinate.latitude)%2C\(self.clLocation.coordinate.longitude)&radius=8000&categories=13000&fields=name%2Cdescription%2Cphotos"
+        print(urlString)
+        
+        performSegue(withIdentifier: "search", sender: self)
     }
     
     @IBAction func segueOverridden(_ sender: UIButton) {
